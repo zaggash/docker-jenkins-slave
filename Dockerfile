@@ -11,8 +11,7 @@ RUN \
       wget && \
 
   LATEST=$(curl -sL https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/maven-metadata.xml | grep latest | tr "<" ">" | cut -d '>' -f 3) && \
-  wget -O swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${LATEST}/swarm-client-${LATEST}.jar && \
-
+  wget -O swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${LATEST}/swarm-client-${LATEST}.jar
   
-
-  
+COPY entrypoint.sh /
+CMD ["/entrypoint.sh"]
